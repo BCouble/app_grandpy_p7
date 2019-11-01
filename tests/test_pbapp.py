@@ -6,7 +6,7 @@ class FlaskTestCase(unittest.TestCase):
 
     # Haha
     def test_index(self):
-        response = requests.get("https://google.com")
+        response = requests.get("http://127.0.0.1:5000/")
         self.assertEqual(response.status_code, 200)
 
 
