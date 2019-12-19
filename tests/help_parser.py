@@ -1,3 +1,6 @@
+
+from parser import P
+
 test = "Bonjour, je suis un texte d'exemple pour le cours d'Openclassrooms. Soyez attentifs à ce cours !"
 
 nltk.word_tokenize(test)

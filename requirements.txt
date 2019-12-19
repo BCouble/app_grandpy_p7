@@ -1,5 +1,5 @@
+wikipedia
+nltk
 requests
 Flask
-pytest
 Flask-Testing
-selenium

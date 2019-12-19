@@ -3,12 +3,12 @@
 
 
 import unittest
+print("google map")
 
 
 class TestGmaps(unittest.TestCase):
 
     def setUp(self):
-        # blabla
         # self.key_api = key_api
         self.results = [{
             "latitude": 48.801408,
@@ -20,7 +20,7 @@ class TestGmaps(unittest.TestCase):
 
     def test_json_return(self, monkeypatch):
         # blablz
-        def mockreturn(request):  # request
+        def mockreturn(request): # request
             return self.results
 
         monkeypatch.setattr(Gmaps, get_return, mockreturn)
