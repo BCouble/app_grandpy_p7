@@ -14,14 +14,20 @@
   </head>
  
 <body>
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-      <img class="masthead-avatar mb-5" src="{{ url_for('static', filename='img/papy.svg') }}" alt="papy">
-    </div>
-  </header>
-  {% block body %}
 
-  {% endblock %}
-  <footer class="footer text-center">Baptiste COUBLE</footer>
+{% block b01_header %}
+{% include 'b01_header.html' %}
+{% endblock %}
+
+{% block b02_container %}
+{% include 'b02_container.html' %}
+{% endblock %}
+
+{% block b03_footer %}
+{% include 'b03_footer.html' %}
+{% endblock %}
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+<script src="{{ url_for('static', filename='js/rep_parser.js') }}"></script>
+
 </body>
 </html>

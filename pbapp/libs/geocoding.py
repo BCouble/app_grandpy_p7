@@ -21,7 +21,6 @@ class Geocode:
         self.search_result = search_json
 
     def status(self):
-        print(self.search_result["status"])
         status = self.search_result["status"]
 
         self.return_result.append(status)
@@ -41,5 +40,8 @@ class Geocode:
         lng = self.search_result["results"][0]["geometry"]["location"]["lng"]
 
         self.return_result.extend((lat, lng))
-        print(self.return_result)
+
+    def get_return(self):
+
+        return self.return_result
 

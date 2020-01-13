@@ -1,8 +1,7 @@
 # ! /usr/bin/env python3
 # coding: utf-8
 """
-Project 5
-App Pur beurre
+Project 7
 """
 from pbapp.libs.parser import Parser
 from pbapp.libs.geocoding import Geocode
@@ -19,13 +18,7 @@ def load_parser(message):
     parser = Parser(message)
     parser.normalisation()
     parser.list_stop_words()
-    query = parser.suppr_sw()
-
-    print("query : ")
-    print(query)
-
-
-    # query = "openclassroom"
+    query = parser.suppr_stop_words()
 
     return query
 
@@ -43,14 +36,16 @@ def quest_geocode(query):
 
 def quest_wiki(query):
     wiki = Wikimedia()
-    wiki.search_wiki(query)
+    r_wiki = wiki.search_wiki(query)
+
+    return r_wiki
 
 
-def main():
-    quest = load_parser(message=write_message())
-    quest_geocode(quest)
-    quest_wiki(quest)
+#def main():
+ #   quest = load_parser(message=write_message())
+  #  quest_geocode(quest)
+   # quest_wiki(quest)
 
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+ #   main()

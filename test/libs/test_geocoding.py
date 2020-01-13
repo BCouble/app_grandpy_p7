@@ -3,13 +3,14 @@
 
 
 import unittest
-print("google map")
+
+from pbapp.libs.geocoding import Geocode
 
 
 class TestGmaps(unittest.TestCase):
 
     def setUp(self):
-        # self.key_api = key_api
+        self.geocode = Geocode()
         self.results = [{
             "latitude": 48.801408,
             "longitude": 2.130122,
@@ -23,13 +24,13 @@ class TestGmaps(unittest.TestCase):
         def mockreturn(request): # request
             return self.results
 
-        monkeypatch.setattr(Gmaps, get_return, mockreturn)
+        monkeypatch.setattr(Geocode, get_return, mockreturn)
 
-        assert Gmaps.get_return["status"] == self.results[4]
-        assert Gmaps.get_return["place_id"] == self.results[3]
-        assert Gmaps.get_return["latitude"] == self.results[0]
-        assert Gmaps.get_return["longitude"] == self.results[1]
-        assert Gmaps.get_return["address"] == self.results[2]
+        assert Geocode.get_return["status"] == self.results[4]
+        assert Geocode.get_return["place_id"] == self.results[3]
+        assert Geocode.get_return["latitude"] == self.results[0]
+        assert Geocode.get_return["longitude"] == self.results[1]
+        assert Geocode.get_return["address"] == self.results[2]
 
 
 if __name__ == '__main__':

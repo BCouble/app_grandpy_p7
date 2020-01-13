@@ -1,0 +1,11 @@
+{% block form %}
+                    <form action="http://localhost:5000/quest" class="container d-flex align-items-center flex-column" method="post">
+                        <label class="inline" for="question">Question:</label>
+                        <input type="text" required name="quest" class="inline">
+                        <button type="submit" class="btn btn-primary inline">
+                            <div id="submit">
+                                Envoyez la question ;)
+                            </div>
+                        </button>
+                    </form>
+{% endblock %}

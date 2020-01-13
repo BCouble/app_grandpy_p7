@@ -4,14 +4,11 @@
 
 import nltk
 from nltk.corpus import stopwords
-from nltk.stem.snowball import FrenchStemmer
-
 from pbapp.constant import STOPWORDS
 
 
 class Parser:
     def __init__(self, message):
-        print(message)
         self.message_recive = message
         self.sw = []
 
@@ -26,11 +23,8 @@ class Parser:
         tokenizer = nltk.RegexpTokenizer(r'\w+')
 
         self.message_recive = tokenizer.tokenize(self.message_recive.lower())
-        print("Normalisation : ")
-        print(self.message_recive)
 
-    def suppr_sw(self):
-        # Bibliotheque nltk stopword
+    def suppr_stop_words(self):
         select = []
         for w in self.message_recive:
             if w in self.sw:
