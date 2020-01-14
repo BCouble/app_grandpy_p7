@@ -24,6 +24,7 @@ class TestGmaps(unittest.TestCase):
         def mockreturn(request): # request
             return self.results
 
+        unittest.mock.patch
         monkeypatch.setattr(Geocode, get_return, mockreturn)
 
         assert Geocode.get_return["status"] == self.results[4]
