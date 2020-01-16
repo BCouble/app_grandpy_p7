@@ -1,35 +1,35 @@
 #! /usr/bin/env python3
 # coding: utf-8
+import re
 
-
-import nltk
-from nltk.corpus import stopwords
 from pbapp.constant import STOPWORDS
 
 
 class Parser:
     def __init__(self, message):
-        self.message_recive = message
-        self.sw = []
+        self.message = message
+        self.spl_message = []
+        self.low_message = []
+        self.r_p_blank = []
+        self.r_st_words = []
 
-    def list_stop_words(self):
-        list_sw = STOPWORDS
-        list_sw_2 = set(stopwords.words('french'))
-        list_sw.append(list_sw_2)
+    def split_message(self):
 
-        self.sw = list_sw
+        self.spl_message = self.message.split()
 
-    def normalisation(self):
-        tokenizer = nltk.RegexpTokenizer(r'\w+')
+    def lowercase_message(self):
 
-        self.message_recive = tokenizer.tokenize(self.message_recive.lower())
+        self.low_message = self.message.lower()
 
-    def suppr_stop_words(self):
-        select = []
-        for w in self.message_recive:
-            if w in self.sw:
-                pass
-            else:
-                select.append(w)
-        select = "-".join(select)
-        return select
+    def remove_punct_blank(self):
+
+        self.r_p_blank = re.sub(r"\W", " ", self.message)
+
+    def remove_stop_words(self):
+        quest_api = []
+        for w in self.message:
+            if w not in STOPWORDS:
+                quest_api.append(w)
+
+        quest_api = "-".join(self.r_st_words)
+        self.r_st_words = quest_api
