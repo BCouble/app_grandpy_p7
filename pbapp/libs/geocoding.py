@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 # coding: utf-8
+
 import requests
 from pbapp.key import key
 
@@ -18,24 +19,24 @@ class Geocode:
         search_req = requests.get(self.search_url, params=search_payload)
         search_json = search_req.json()
 
-        self.search_result = search_json
+        return search_json
 
-    def status(self):
-        status = self.search_result["status"]
+    def status(self, search_result):
+        status = search_result["status"]
 
         self.return_result.append(status)
 
-    def place_id(self):
-        place_id = self.search_result["results"][0]["place_id"]
+    def place_id(self, search_result):
+        place_id = search_result["results"][0]["place_id"]
 
         self.return_result.append(place_id)
 
-    def address(self):
-        address_format = self.search_result["results"][0]["formatted_address"]
+    def address(self, search_result):
+        address_format = search_result["results"][0]["formatted_address"]
 
         self.return_result.append(address_format)
 
-    def coordinate(self):
+    def coordinate(self, search_result):
         lat = self.search_result["results"][0]["geometry"]["location"]["lat"]
         lng = self.search_result["results"][0]["geometry"]["location"]["lng"]
 

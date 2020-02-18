@@ -2,7 +2,10 @@
 # coding: utf-8
 
 
-import wikipedia
+import unittest
+from pbapp.libs.geocoding import Geocode
+from unittest.mock import Mock
+from unittest import TestCase
 
 
 class Wikimedia:

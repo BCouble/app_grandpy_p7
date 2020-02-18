@@ -27,7 +27,7 @@ def load_parser(message):
 def quest_geocode(query):
     geocode = Geocode()
     map_geo = geocode.search(query)
-    geocode.status()
+    geocode.status(map_geo)
     geocode.place_id()
     geocode.address()
     geocode.coordinate()

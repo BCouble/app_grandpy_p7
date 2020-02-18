@@ -8,28 +8,32 @@ from pbapp.constant import STOPWORDS
 class Parser:
     def __init__(self, message):
         self.message = message
-        self.spl_message = []
-        self.low_message = []
-        self.r_p_blank = []
+        self.findall = []
+        self.lower = []
+        self.r_ponct_blank = []
         self.r_st_words = []
 
-    def split_message(self):
+    def split_message_with_ponc(self):
+        self.findall = re.findall(r'^|\w+', self.message)
 
-        self.spl_message = self.message.split()
+        return self.findall
 
     def lowercase_message(self):
+        for w in self.message:
+            self.lower.append(w.lower())
 
-        self.low_message = self.message.lower()
+        return self.lower
 
     def remove_punct_blank(self):
+        for w in self.message:
+            w = re.sub(r"\W", "", w)
+            self.r_ponct_blank.append(w)
 
-        self.r_p_blank = re.sub(r"\W", " ", self.message)
+        return self.r_ponct_blank
 
     def remove_stop_words(self):
-        quest_api = []
         for w in self.message:
             if w not in STOPWORDS:
-                quest_api.append(w)
+                self.r_st_words.append(w)
 
-        quest_api = "-".join(self.r_st_words)
-        self.r_st_words = quest_api
+        return "-".join(self.r_st_words)
