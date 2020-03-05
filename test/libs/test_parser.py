@@ -8,38 +8,40 @@ from pbapp.libs.parser import Parser
 
 class ParserTest(unittest.TestCase):
     def setUp(self):
-        self.message_findall = ['', 'Hey', 'GrandPy', 'Est', 'ce', 'que', 'tu', 'connais', 'l', 'adresse', 'd',
-                                'OpenClassrooms']
-        self.parser = Parser(self.message_findall)
+        self.message = "Hey GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"
+        self.parser = Parser(self.message)
 
     def test_split_message(self):
-        message = "Hey GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?"
-        parser = Parser(message)
-        sp_parser = parser.split_message_with_ponc()
+        """ Ici nous vérifions si la phrase est bien séparée """
 
-        self.assertEqual(sp_parser,
+        self.assertEqual(self.parser.split_message_with_ponc(),
                          ['', 'Hey', 'GrandPy', 'Est', 'ce', 'que', 'tu', 'connais', 'l', 'adresse', 'd',
                           'OpenClassrooms'])
 
     def test_upper(self):
-        lo_parser = self.parser.lowercase_message()
+        """ Ici nous vérifions si le texte est en minuscule """
+        self.parser.split_message_with_ponc()
 
-        self.assertEqual(lo_parser,
+        self.assertEqual(self.parser.lowercase_message(),
                          ['', 'hey', 'grandpy', 'est', 'ce', 'que', 'tu', 'connais', 'l', 'adresse', 'd',
                           'openclassrooms'])
 
     def test_remove_punct_blank(self):
-        r_p_blank = self.parser.remove_punct_blank()
+        """ Ici nous vérifions si il reste des symbole de ponctuation """
+        self.parser.split_message_with_ponc()
+        self.parser.lowercase_message()
 
-        self.assertEqual(r_p_blank,
-                         ['', 'Hey', 'GrandPy', 'Est', 'ce', 'que', 'tu', 'connais', 'l', 'adresse', 'd',
-                          'OpenClassrooms'])
+        self.assertEqual(self.parser.remove_punct_blank(),
+                         ['', 'hey', 'grandpy', 'est', 'ce', 'que', 'tu', 'connais', 'l', 'adresse', 'd',
+                          'openclassrooms'])
 
     def test_remove_stop_words(self):
-        r_sw = self.parser.remove_stop_words()
+        """ Ici nous vérifions si les stop words ont été supprimées """
+        self.parser.split_message_with_ponc()
+        self.parser.lowercase_message()
+        self.parser.remove_punct_blank()
 
-        self.assertEqual(r_sw,
-                         "-OpenClassrooms")
+        self.assertEqual(self.parser.remove_stop_words(), ' openclassrooms')
 
 
 if __name__ == '__main__':

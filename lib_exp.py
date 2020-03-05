@@ -20,6 +20,7 @@ def load_parser(message):
     parser.lowercase_message()
     parser.remove_punct_blank()
     m_parser = parser.remove_stop_words()
+    print(m_parser)
 
     return m_parser
 
@@ -28,9 +29,9 @@ def quest_geocode(query):
     geocode = Geocode()
     map_geo = geocode.search(query)
     geocode.status(map_geo)
-    geocode.place_id()
-    geocode.address()
-    geocode.coordinate()
+    geocode.place_id(map_geo)
+    geocode.address(map_geo)
+    geocode.coordinate(map_geo)
 
     return map_geo
 

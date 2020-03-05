@@ -19,21 +19,22 @@ class Parser:
         return self.findall
 
     def lowercase_message(self):
-        for w in self.message:
+        for w in self.findall:
             self.lower.append(w.lower())
 
         return self.lower
 
     def remove_punct_blank(self):
-        for w in self.message:
+        for w in self.lower:
             w = re.sub(r"\W", "", w)
             self.r_ponct_blank.append(w)
 
         return self.r_ponct_blank
 
     def remove_stop_words(self):
-        for w in self.message:
+        for w in self.lower:
             if w not in STOPWORDS:
                 self.r_st_words.append(w)
 
-        return "-".join(self.r_st_words)
+        new = ' '
+        return new.join(self.r_st_words)

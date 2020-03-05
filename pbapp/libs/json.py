@@ -2,21 +2,23 @@
 # coding: utf-8
 
 import json
+import os
+
 from jsonschema import validate
 
 
 class Json:
 
     def __inti__(self):
-        pass
+        self.shema_geocode = os.path.isfile("./pbapp/static/json/shemas/geocode.json")
 
     def open_json_shema(self, file):
-        pass
+        """ Ici nous chargeons un schema json """
         with open(file) as schema_file:
-            test_schema = json.load(schema_file)
+            schema_json = json.load(schema_file)
         schema_file.close()
 
-        return test_schema
+        return schema_json
 
     def valide_json_shema(self, file):
         pass
