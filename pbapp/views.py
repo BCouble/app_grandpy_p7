@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import datetime
+from lib_exp import load_parser, quest_geocode, quest_wiki
 
 
 app = Flask(__name__)
@@ -20,8 +21,13 @@ def index():
 @app.route('/quest', methods=['POST'])
 def quest():
     result = request.form
-    r = result["quest"]
-    return render_template('index.html', quest=r)
+    q = result["quest"]
+    parser = load_parser(q)
+    geocode = quest_geocode(parser)
+    wikimedia = quest_wiki(parser)
+    message = geocode
+
+    return render_template('index.html', jsonify={"quest": q, "parser": parser, "geo": geocode, "wiki": wikimedia})
 
 
 if __name__ == "__main__":

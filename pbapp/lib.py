@@ -15,6 +15,7 @@ def write_message():
 
 
 def load_parser(message):
+    print(message)()
     parser = Parser(message)
     parser.split_message_with_ponc()
     parser.lowercase_message()

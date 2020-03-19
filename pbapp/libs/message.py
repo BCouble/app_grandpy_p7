@@ -14,7 +14,7 @@ class Message:
             },
             "message_wikimedia": ""
         }
-²
+
     def message_home(self):
         """ Random rubrique homev"""
         pass

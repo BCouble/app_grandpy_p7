@@ -48,7 +48,6 @@ class Geocode:
         self.return_result.extend((lat, lng))
 
     def get_return(self):
-        print(self.return_result)
 
         return self.return_result
 

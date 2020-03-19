@@ -21,9 +21,6 @@ class Converse{
 
         messageElt.textContent = this.message;
         var brElt = document.createElement("br");
-
-        configMe()
-
         var spanElt = document.createElement("span");
         var auteurElt = document.createElement("a");
         auteurElt.textContent = "Ajouté par "+this.author;

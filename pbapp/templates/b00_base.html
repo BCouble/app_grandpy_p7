@@ -26,8 +26,9 @@
 {% block b03_footer %}
 {% include 'b03_footer.html' %}
 {% endblock %}
+<script src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
-<script src="{{ url_for('static', filename='js/rep_parser.js') }}"></script>
-
+<script src="{{ url_for('static', filename='js/rep_message.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </body>
 </html>
