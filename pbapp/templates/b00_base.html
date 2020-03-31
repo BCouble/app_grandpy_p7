@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Kennedy Family Recipe App">
-    <meta name="author" content="Patrick Kennedy">
+    <meta name="description" content="Grandpy App request api geocode and mediawiki">
+    <meta name="author" content="Baptiste COUBLE">
     <title>Papy bot or ro-bot</title>
     <!-- styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -26,9 +26,10 @@
 {% block b03_footer %}
 {% include 'b03_footer.html' %}
 {% endblock %}
+
 <script src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW2FeYgDNjX8dPYCir9cweuFR2DzANuNc&callback=initMap" async defer></script>
 <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
 <script src="{{ url_for('static', filename='js/rep_message.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </body>
 </html>

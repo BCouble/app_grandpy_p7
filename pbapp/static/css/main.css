@@ -1,3 +1,31 @@
 #echange{
-    width: 100%;
+    width: 80%;
+}
+.message{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0.375rem 0.75rem;
+    margin: 10px 0 10px 0;
+}
+.message_grandpy{
+    background: #CCC;
+}
+.message_user{
+    background: #EEE;
+    text-align: right;
+}
+#map {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    height: 300px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.row>* {
+    flex: 1 1 100%;
 }

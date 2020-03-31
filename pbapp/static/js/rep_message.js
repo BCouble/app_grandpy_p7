@@ -1,73 +1,7 @@
-/*class Message {
-    constructor(name, id, message) {
-        this.name = name;
-        this.id = id;
-        this.message = message;
-    }
-
-}
-
-let myMessage = new Message("Papy", "01", "Hello");
-console.log(myMessage)
-$.ajax({
-	data : {
-		question: $('#question').val()
-	},
-	type : 'POST',
-	url : '/quest'
-})*/
-/*
-$(function() {
-    $.ajax({
-        type : 'POST',
-	    url : '/quest',
-	    success: function(data) { console.log("hello world !");
-    });
-};
-};
-    $.ajax({
-        url: "/quest",
-        type : "POST",
-        data: {
-            param1 : "value1",
-            param2 : "value2"
-        }
-    })
-    .done (function(data) {
-
-     })
-    .fail (function()  { alert("Error ")   ; })
-    ;
-
-*/
-/*
-$(document).ready(function() {
-
-    var $listMessage, $newQuest;
-    $listMessage = $('list_message');
-    $newQuest = $('#new_quest');
-
-    $newQuest.on('submit', function(e){
-        e.preventDefault();
-        $.ajax({
-            data: {
-                quest = $('input:text').val();
-            },
-            type:'POST',
-            url: '/quest'
-        })
-        .done(function(data){
-            alert(data);
-        })
-        $listMessage.append('<li>' +data+ '</li>');
-    });
-
-});
-*/
 $(function(){
 
     var $listMessage, $newQuest;
-    $listMessage = $('list_message');
+    $listMessage = $('#list_message');
     $newQuest = $('#new_quest');
 
     $newQuest.on('submit', function(e){
@@ -78,6 +12,18 @@ $(function(){
             },
             type : 'POST',
             url : '/quest'
-        });
+        })
+        .done(function(data){
+            $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
+            $listMessage.append('<div class="message message_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
+            $coordinate = data.geo[0]['results'][0]['geometry']['location'];
+            $listMessage.append('<div id="map"></div>');
+            $("#map").css("position","fixed !important");
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: $coordinate['lat'], lng: $coordinate['lng']},
+                zoom: 8
+            });
+            $listMessage.append('<div class="message message_grandpy">' + data.wiki + '</div>');
+        })
     });
 });

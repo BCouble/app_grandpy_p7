@@ -26,15 +26,17 @@ def load_parser(message):
 
 
 def quest_geocode(query):
+    message_geocode = {}
     geocode = Geocode()
     map_geo = geocode.search(query)
     geocode.status(map_geo)
     geocode.place_id(map_geo)
     geocode.address(map_geo)
-    geocode.coordinate(map_geo)
-    #print(map_geo)
+    gmap = geocode.coordinate(map_geo)
+    print(map_geo)
+    print(gmap)
 
-    return map_geo
+    return map_geo, gmap
 
 
 def quest_wiki(query):

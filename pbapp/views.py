@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import datetime
 from lib_exp import load_parser, quest_geocode, quest_wiki
 
-
 app = Flask(__name__)
 
 app.config.from_object('config')
@@ -27,10 +26,10 @@ def quest():
     wikimedia = quest_wiki(parser)
     message = geocode
 
-    return render_template('index.html', jsonify={"quest": q, "parser": parser, "geo": geocode, "wiki": wikimedia})
+    # return render_template('index.html', jsonify={"quest": q, "parser": parser, "geo": geocode, "wiki": wikimedia})
+
+    return jsonify({'quest': q, 'parser': parser, 'geo': geocode, 'wiki': wikimedia})
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
