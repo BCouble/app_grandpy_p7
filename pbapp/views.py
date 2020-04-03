@@ -14,6 +14,7 @@ def index():
     h = date.hour
     m = date.minute
     s = date.second
+
     return render_template('index.html', heure=h, minute=m, second=s)
 
 
@@ -22,11 +23,10 @@ def quest():
     result = request.form
     q = result["quest"]
     parser = load_parser(q)
+    #if parser != '': it's good
+
     geocode = quest_geocode(parser)
     wikimedia = quest_wiki(parser)
-    message = geocode
-
-    # return render_template('index.html', jsonify={"quest": q, "parser": parser, "geo": geocode, "wiki": wikimedia})
 
     return jsonify({'quest': q, 'parser': parser, 'geo': geocode, 'wiki': wikimedia})
 
