@@ -33,8 +33,6 @@ def quest_geocode(query):
     geocode.place_id(map_geo)
     geocode.address(map_geo)
     gmap = geocode.coordinate(map_geo)
-    print(map_geo)
-    print(gmap)
 
     return map_geo, gmap
 

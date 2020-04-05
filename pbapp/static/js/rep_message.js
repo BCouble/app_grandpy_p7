@@ -19,7 +19,8 @@ $(function(){
             $map = $map + $nb_post;
             $nb_post ++;
             $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
-            $listMessage.append('<div class="message message_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
+            $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
+            $listMessage.append('<div class="message reponse_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
             $coordinate = data.geo[0]['results'][0]['geometry']['location'];
             $listMessage.append('<div id="' + $map + '" class="map"></div>');
             $($map).css("position","fixed !important");
@@ -27,7 +28,8 @@ $(function(){
                 center: {lat: $coordinate['lat'], lng: $coordinate['lng']},
                 zoom: 8
             });
-            $listMessage.append('<div class="message message_grandpy">' + data.wiki + '</div>');
+            $listMessage.append('<div class="message message_grandpy">' + data.message[1] + '</div>');
+            $listMessage.append('<div class="message reponse_grandpy">' + data.wiki + '</div>');
         })
     });
 });

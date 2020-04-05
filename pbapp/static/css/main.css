@@ -9,7 +9,11 @@
     margin: 10px 0 10px 0;
 }
 .message_grandpy{
-    background: #CCC;
+    background: #1abc9c;
+    color: #fff;
+}
+.reponse_grandpy{
+    background: #ccc;
 }
 .message_user{
     background: #EEE;
