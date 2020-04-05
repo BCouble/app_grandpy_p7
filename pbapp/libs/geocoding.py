@@ -1,25 +1,20 @@
 #! /usr/bin/env python3
 # coding: utf-8
-import os
-
 import requests
-from pbapp.key import key
-
-from flask_googlemaps import GoogleMaps, Map, icons
-from flask import jsonify
+from config import API_GMAP
 
 
 class Geocode:
 
     def __init__(self):
-        self.key_api = key
+        self.key_api = API_GMAP
         self.search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
         self.details_url = "https://maps.googleapis.com/maps/api/place/details/json"
         self.search_result = []
         self.return_result = []
 
     def search(self, query):
-        search_payload = {"key": key, "query": query}
+        search_payload = {"key": API_GMAP, "query": query}
         search_req = requests.get(self.search_url, params=search_payload)
         search_json = search_req.json()
         self.search_result = search_json
