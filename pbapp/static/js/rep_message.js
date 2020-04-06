@@ -17,6 +17,7 @@ $(document).ready(function() {
             url : '/quest'
         })
         .done(function(data){
+            console.log(data)
             if (data.error == 1){
                 $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
             }else if (data.error == 0){
