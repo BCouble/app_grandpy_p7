@@ -36,5 +36,4 @@ class Parser:
             if w not in STOPWORDS:
                 self.r_st_words.append(w)
 
-        new = ' '
-        return new.join(self.r_st_words)
+        return self.r_st_words
