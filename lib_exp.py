@@ -15,14 +15,20 @@ def write_message():
 
 
 def load_parser(message):
+    list_parse = []
     parser = Parser(message)
-    parser.split_message_with_ponc()
-    parser.lowercase_message()
-    #parser.remove_punct_blank()
+    one = parser.split_message_with_ponc()
+    list_parse.append(one)
+    tow = parser.lowercase_message()
+    list_parse.append(tow)
+    tree = parser.remove_punct_blank()
+    list_parse.append(tree)
     m_parser = parser.remove_stop_words()
+    foor = m_parser
+    list_parse.append(foor)
     #print(m_parser)
 
-    return m_parser
+    return list_parse
 
 
 def quest_geocode(query):
