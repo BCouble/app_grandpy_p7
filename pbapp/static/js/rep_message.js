@@ -19,7 +19,7 @@ $(document).ready(function() {
         .done(function(data){
             if (data.error == 1){
                 $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
-            }else{
+            }else if (data.error == 0){
                 $map = $map + $nb_post;
                 $nb_post ++;
                 $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
