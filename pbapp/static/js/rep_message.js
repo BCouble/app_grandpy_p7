@@ -23,6 +23,7 @@ $(document).ready(function() {
             console.log(data.message[0]);
             $map = $map + $nb_post;
             $nb_post ++;
+            $listMessage.append('<div class="message message_user">Faut que ça tourne !</div>');
             $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
             $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
             $listMessage.append('<div class="message reponse_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
