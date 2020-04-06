@@ -1,4 +1,5 @@
-$(function(){
+
+$(document).ready(function() {
 
     var $listMessage, $newQuest, $nb_post, $map;
     $listMessage = $('#list_message');

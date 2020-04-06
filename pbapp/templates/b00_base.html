@@ -8,11 +8,11 @@
     <meta name="author" content="Baptiste COUBLE">
     <title>Papy bot or ro-bot</title>
     <!-- styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/freelancer.css') }}">
   </head>
- 
+
 <body>
 
 {% block b01_header %}
@@ -27,8 +27,9 @@
 {% include 'b03_footer.html' %}
 {% endblock %}
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW2FeYgDNjX8dPYCir9cweuFR2DzANuNc&callback=initMap" async defer></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBW2FeYgDNjX8dPYCir9cweuFR2DzANuNc" async defer></script>
 <script src="{{ url_for('static', filename='js/rep_message.js') }}"></script>
 </body>
 </html>
