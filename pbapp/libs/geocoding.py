@@ -1,13 +1,12 @@
 #! /usr/bin/env python3
 # coding: utf-8
 import requests
-from config import API_GMAP
+from pbapp.key import API_GMAP
 
 
 class Geocode:
 
     def __init__(self):
-        self.key_api = API_GMAP
         self.search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
         self.details_url = "https://maps.googleapis.com/maps/api/place/details/json"
         self.search_result = []

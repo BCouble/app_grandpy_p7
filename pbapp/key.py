@@ -1,2 +1,2 @@
 # papybot
-key = "AIzaSyBW2FeYgDNjX8dPYCir9cweuFR2DzANuNc"
+API_GMAP = "AIzaSyBW2FeYgDNjX8dPYCir9cweuFR2DzANuNc"
