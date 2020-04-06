@@ -28,15 +28,15 @@ def quest():
     parser = load_parser(q)
     print(parser)
     nb = parser.count(" ")
-    
+
     if nb <= 1:
         error = 0
         message_grandpy = Message()
         message_grandpy.message_geocode()
         message = message_grandpy.message_wikimedia()
 
-        geocode = quest_geocode(parser)
-        wikimedia = quest_wiki(parser)
+        geocode = quest_geocode(q)
+        wikimedia = quest_wiki(q)
 
         return jsonify({'quest': q, 'message': message, 'parser': parser, 'geo': geocode, 'wiki': wikimedia, 'error': error})
 
