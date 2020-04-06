@@ -17,6 +17,10 @@ $(document).ready(function() {
             url : '/quest'
         })
         .done(function(data){
+            console.log(data);
+            console.log(data.geo);
+            console.log(data.message);
+            console.log(data.message[0]);
             $map = $map + $nb_post;
             $nb_post ++;
             $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
