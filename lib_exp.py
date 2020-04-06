@@ -18,7 +18,7 @@ def load_parser(message):
     parser = Parser(message)
     parser.split_message_with_ponc()
     parser.lowercase_message()
-    parser.remove_punct_blank()
+    #parser.remove_punct_blank()
     m_parser = parser.remove_stop_words()
     #print(m_parser)
 
