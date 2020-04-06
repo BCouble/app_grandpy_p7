@@ -17,25 +17,23 @@ $(document).ready(function() {
             url : '/quest'
         })
         .done(function(data){
-            console.log(data);
-            console.log(data.geo);
-            console.log(data.message);
-            console.log(data.message[0]);
-            $map = $map + $nb_post;
-            $nb_post ++;
-            $listMessage.append('<div class="message message_user">Faut que ça tourne !</div>');
-            $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
-            $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
-            $listMessage.append('<div class="message reponse_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
-            $coordinate = data.geo[0]['results'][0]['geometry']['location'];
-            $listMessage.append('<div id="' + $map + '" class="map"></div>');
-            $($map).css("position","fixed !important");
-            map = new google.maps.Map(document.getElementById($map), {
-                center: {lat: $coordinate['lat'], lng: $coordinate['lng']},
-                zoom: 8
-            });
-            $listMessage.append('<div class="message message_grandpy">' + data.message[1] + '</div>');
-            $listMessage.append('<div class="message reponse_grandpy">' + data.wiki + '</div>');
-        })
+            if (data.error == 1){
+                $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
+            }else{
+                $map = $map + $nb_post;
+                $nb_post ++;
+                $listMessage.append('<div class="message message_user">' + data.quest + '</div>');
+                $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>');
+                $listMessage.append('<div class="message reponse_grandpy">' + data.geo[0]['results'][0]['formatted_address'] + '</div>');
+                $coordinate = data.geo[0]['results'][0]['geometry']['location'];
+                $listMessage.append('<div id="' + $map + '" class="map"></div>');
+                $($map).css("position","fixed !important");
+                map = new google.maps.Map(document.getElementById($map), {
+                    center: {lat: $coordinate['lat'], lng: $coordinate['lng']},
+                    zoom: 8
+                });
+                $listMessage.append('<div class="message message_grandpy">' + data.message[1] + '</div>');
+                $listMessage.append('<div class="message reponse_grandpy">' + data.wiki + '</div>');
+        }})
     });
 });

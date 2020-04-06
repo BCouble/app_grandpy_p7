@@ -41,8 +41,9 @@ def quest():
     else:
         message_error = Message()
         message = message_error.message_error()
+        error = 1
 
-        return jsonify({'quest': q, 'message': message})
+        return jsonify({'quest': q, 'message': message, 'error': error})
 
 
 if __name__ == "__main__":
