@@ -8,18 +8,18 @@ from pbapp.constant import STOPWORDS
 class Parser:
     def __init__(self, message):
         self.message = message
-        self.findall = []
+        self.split = []
         self.lower = []
         self.r_ponct_blank = []
         self.r_st_words = []
 
     def split_message_with_ponc(self):
-        self.findall = re.findall(r'^|\w+', self.message)
+        self.split = self.message.split()
 
-        return self.findall
+        return self.split
 
     def lowercase_message(self):
-        for w in self.findall:
+        for w in self.split:
             self.lower.append(w.lower())
 
         return self.lower
