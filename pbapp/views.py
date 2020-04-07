@@ -35,8 +35,8 @@ def quest():
         message_grandpy.message_geocode()
         message = message_grandpy.message_wikimedia()
 
-        geocode = quest_geocode(q)
-        wikimedia = quest_wiki(q)
+        geocode = quest_geocode(parser)
+        wikimedia = quest_wiki(parser)
 
         return jsonify({'quest': q, 'message': message, 'parser': parser, 'geo': geocode, 'wiki': wikimedia, 'error': error})
 
