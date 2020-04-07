@@ -15,24 +15,16 @@ def write_message():
 
 
 def load_parser(message):
-    list_parse = []
     parser = Parser(message)
-    one = parser.split_message_with_ponc()
-    list_parse.append(one)
-    tow = parser.lowercase_message()
-    list_parse.append(tow)
-    tree = parser.remove_punct_blank()
-    list_parse.append(tree)
+    parser.split_message_with_ponc()
+    parser.lowercase_message()
+    parser.remove_punct_blank()
     m_parser = parser.remove_stop_words()
-    foor = m_parser
-    list_parse.append(foor)
-    #print(m_parser)
 
-    return list_parse
+    return m_parser
 
 
 def quest_geocode(query):
-    message_geocode = {}
     geocode = Geocode()
     map_geo = geocode.search(query)
     geocode.status(map_geo)
@@ -46,7 +38,6 @@ def quest_geocode(query):
 def quest_wiki(query):
     wiki = Wikimedia()
     r_wiki = wiki.search_wiki(query)
-    #print(r_wiki)
 
     return r_wiki
 
