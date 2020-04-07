@@ -26,13 +26,13 @@ class Parser:
 
     def remove_punct_blank(self):
         for w in self.lower:
-            w = re.sub(r"\W", "", w)
-            self.r_ponct_blank.append(w)
+            f = re.sub(r"\W+", "", w)
+            self.r_ponct_blank.append(f)
 
         return self.r_ponct_blank
 
     def remove_stop_words(self):
-        for w in self.lower:
+        for w in self.r_ponct_blank:
             if w not in STOPWORDS:
                 self.r_st_words.append(w)
 

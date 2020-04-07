@@ -26,7 +26,6 @@ def quest():
     result = request.form
     q = result["quest"]
     parser = load_parser(q)
-    print(parser)
     nb = parser.count(" ")
 
     if nb <= 1:

@@ -19,8 +19,9 @@ $(document).ready(function() {
         })
         .done(function(data){
             $( ".loader" ).remove();
+            console.log(data);
             if (data.error == 1){
-                $listMessage.append('<div class="message message_grandpy">' + data.message[0] + '</div>').fadeIn(1000);
+                $listMessage.append('<div class="message message_grandpy">' + data.message + '</div>').fadeIn(1000);
             }else if (data.error == 0){
                 $map = $map + $nb_post;
                 $nb_post ++;
