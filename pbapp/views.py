@@ -27,7 +27,7 @@ def quest():
     q = result["quest"]
     parser = load_parser(q)
     nb = parser.count(" ")
-
+    print(parser)
     if nb <= 1:
         error = 0
         message_grandpy = Message()
