@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import datetime
-from lib_exp import load_parser, quest_geocode, quest_wiki
+from pbapp.lib_exp import load_parser, quest_geocode, quest_wiki
 from pbapp.libs.message import Message
 
 app = Flask(__name__)
@@ -27,13 +27,11 @@ def quest():
     q = result["quest"]
     parser = load_parser(q)
     nb = parser.count(" ")
-    print(parser)
-    if nb <= 1:
+    if len(parser) != 0 and nb <= 1:
         error = 0
         message_grandpy = Message()
         message_grandpy.message_geocode()
         message = message_grandpy.message_wikimedia()
-
         geocode = quest_geocode(parser)
         wikimedia = quest_wiki(parser)
 

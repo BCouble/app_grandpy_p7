@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 # coding: utf-8
 import re
-
+import string
 from pbapp.constant import STOPWORDS
 
 
@@ -14,7 +14,9 @@ class Parser:
         self.r_st_words = []
 
     def split_message_with_ponc(self):
-        self.split = self.message.split()
+        a = self.message.replace("'", " ")
+        t = a.replace("-", " ")
+        self.split = t.split()
 
         return self.split
 

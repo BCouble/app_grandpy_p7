@@ -38,16 +38,11 @@ class TestGeocodingAPI(TestCase):
             }],
             "status": "OK"
         }
-        # Load geocoding
         self.geocode = Geocode()
-        # Load json
         self.jsonFile = Json()
-        # Load schema
         file = "geocode"
         self.schema_geocode = self.jsonFile.open_json_shema(file)
-        # Mock data geocode_response
         self.geocode.search = Mock(return_value=geocode_response)
-        # Load return API avec query Paris
         query = "Bonjour Grandpy, j'aimerais visiter Paris"
         self.return_json_api_geocode = self.geocode.search(query)
 
@@ -59,7 +54,7 @@ class TestGeocodingAPI(TestCase):
     def test_json_schema_mock(self):
         """ Validate the json schema of the Mock """
 
-        self.assertDictEqual(self.jsonFile.valide_json_shema(self.return_json_api_geocode, self.schema_geocode))
+        self.assertTrue(self.jsonFile.valide_json_shema(self.return_json_api_geocode, self.schema_geocode), True)
 
     def test_status(self):
         """ Mock geocode_response return status """
@@ -85,10 +80,6 @@ class TestGeocodingAPI(TestCase):
 
     def test_get_return(self):
         """ Check list returned by geocode """
-        # charger var reponse test schema
-        # valid shema mock
-        #
-        # test inte api
         return_list = ['OK', '691b237b0322f28988f3ce03e321ff72a12167fd', 'Paris, France', 48.856614, 2.3522219]
         self.geocode.status(self.return_json_api_geocode)
         self.geocode.place_id(self.return_json_api_geocode)

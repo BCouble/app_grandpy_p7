@@ -8,12 +8,6 @@ from pbapp.libs.parser import Parser
 from pbapp.libs.wikipedia import Wikimedia
 
 
-def write_message():
-    message = input("ici quest :")
-
-    return message
-
-
 def load_parser(message):
     parser = Parser(message)
 
@@ -41,13 +35,3 @@ def quest_wiki(query):
     r_wiki = wiki.search_wiki(query)
 
     return r_wiki
-
-
-def main():
-    quest = load_parser(message=write_message())
-    quest_geocode(quest)
-    quest_wiki(quest)
-
-
-if __name__ == "__main__":
-    main()

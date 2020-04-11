@@ -23,12 +23,9 @@ class Json:
 
     def valide_json_shema(self, schema_to_test, schema_valid):
         try:
-            validate(schema_to_test, schema_valid)
+            validate(schema_to_test["results"], schema_valid)
         except Exception as valid_err:
-            print("Validation KO: {}".format(valid_err))
             raise valid_err
         else:
-            # Realise votre travail
-            print("Validé")
             valid = True
             return valid

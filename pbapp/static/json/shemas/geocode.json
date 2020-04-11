@@ -1,11 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "JSON SCHEMA search of GrandPy in api google maps",
-  "type": "object",
   "anyOf": [{"required": ["formatted_address", "id", "name", "place_id"]}],
   "properties": {
     "results": {
-      "type": "object",
       "properties": {
         "formatted_address": {"type": "string"},
         "id": {"type": "string"},
