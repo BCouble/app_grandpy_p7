@@ -1,4 +1,4 @@
-LIST_01 = ["test", "bonjour", "cas", "grandpy", "papybot", "papy", "papi", "bot", "robot", "connais", "cherche", "chercher", "cherchez", "allez", "aller", "adresse", "hey", "Hey", "GrandPy", "Est", ""]
+LIST_01 = ["test", "bonjour", "cas", "grandpy", "papybot", "papy", "papi", "bot", "robot", "connais", "aimerais", "chercherais", "cherche", "chercher", "cherchez", "allez", "aller", "adresse", "hey", "Hey", "GrandPy", "Est", ""]
 LIST_OCR = ["a", "salut", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs", "ainsi", "ait", "allaient"
     , "allo", "allons", "allô", "alors", "anterieur", "anterieure", "anterieures", "apres", "après", "as"
     , "assez", "attendu", "au", "aucun", "aucune", "aujourd", "aujourd'hui", "aupres", "auquel", "aura"
